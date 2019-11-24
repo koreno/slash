@@ -176,3 +176,8 @@ else:
                 current = current.tb_next
 
         return (first, current)
+
+    def istraceback(object):
+        return isinstance(object, (types.TracebackType, TracebackProxy))
+
+    inspect.istraceback = istraceback  # so that it cooperates with 'inspect.getframeinfo'
